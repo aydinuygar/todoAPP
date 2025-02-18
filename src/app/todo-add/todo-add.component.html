@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form #todoForm="ngForm" (ngSubmit)="addTodo(todoForm.value)">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter new todo"
+                [(ngModel)]="todoForm.value.title"
+                name="title"
+                required
+                #titleInput="ngModel">  <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="alert alert-danger">
+                  <div *ngIf="titleInput.errors?.['required']">
+                    Title is required.
+                  </div>
+                </div>
+            </div>
+            <div class="mb-3">
+              <select class="form-select" [(ngModel)]="todoForm.value.priority" name="priority" required #priorityInput="ngModel">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+              <div *ngIf="priorityInput.invalid && (priorityInput.dirty || priorityInput.touched)" class="alert alert-danger">
+                  <div *ngIf="priorityInput.errors?.['required']">
+                    Priority is required.
+                  </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
