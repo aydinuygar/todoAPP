@@ -1,5 +1,7 @@
 # TodoApp
-
+This project is a simple todo application built using Angular and Firebase. 
+Users can add new todo items, set their priorities, and delete completed items.
+The data is stored in the Firebase database in real-time, which ensures that the application is always up-to-date.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
 ## Development server
